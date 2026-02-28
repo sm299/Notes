@@ -1,4 +1,4 @@
-**JRE->**
+# **JRE->**
 
 Java Runtime Environment (JRE) is a bundle of software components used to run Java applications.
 Core components of the JRE include:
