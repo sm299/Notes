@@ -1,4 +1,4 @@
-#**JDK->**
+# **JDK->**
 
 Java Development Kit (JDK) provides environment and tools for developing, compiling, debugging, and executing a Java program.
 
@@ -34,4 +34,4 @@ jarsigner – generates digitally signed JAR files by using keystore information
 policytool –  enables us to manage the external policy configuration files that define installation’s security policy
 
 
-##Many things to check and update
+## Many things to check and update
