@@ -1,17 +1,17 @@
 # Main Components 
-**Executor**. 
-**ExecutorService**. 
-**ScheduledExecutorService**. 
+**Executor**<br>
+**ExecutorService**<br>
+**ScheduledExecutorService**<br>
 
-**Future**
-**CountDownLatch**
-**CyclicBarrier**
-**Semaphore**
-**ThreadFactory**
-**BlockingQueue**
-**DelayQueue**
-**Locks**
-**Phaser**
+**Future**<br>
+**CountDownLatch**<br>
+**CyclicBarrier**<br>
+**Semaphore**<br>
+**ThreadFactory**<br>
+**BlockingQueue**<br>
+**DelayQueue**<br>
+**Locks**<br>
+**Phaser**<br>
 
 **Executor ->**
 Executor is an interface that represents an object that executes provided tasks.
