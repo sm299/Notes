@@ -28,16 +28,16 @@ executor.execute(() -> {
 });
 
 You give the task to the Executor, and it handles:
-Creating threads
-Reusing threads
-Managing lifecycle
+Creating threads<br>
+Reusing threads<br>
+Managing lifecycle<br>
 Queueing tasks
 
 Creating threads manually is:
-Expensive
-Hard to manage
-Hard to scale
-Hard to control
+Expensive<br>
+Hard to manage<br>
+Hard to scale<br>
+Hard to control<br>
 Executor solves this by using thread pools.
 
 👉 Executor only defines how to submit a task
