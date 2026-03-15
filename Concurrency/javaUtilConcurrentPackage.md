@@ -370,9 +370,9 @@ So, here one confusion may come like if S<=0 in signal function then it may not 
 ### Binary Semaphore->
 A binary semaphore is a semaphore that takes only two values (0 and 1) and is used to ensure that only one process accesses a critical section at a time.<br>
 The semaphore acts like a lock or switch.<br>
-Value	Meaning<br>
-1	    Resource is free<br>
-0	    Resource is in use (locked)<br>
+Value    Meaning<br>
+1        Resource is free<br>
+0        Resource is in use (locked)<br>
 So only one process can enter the critical section at a time.<br>
 
 *Mutex->*
