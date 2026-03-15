@@ -398,13 +398,14 @@ Think of it as a counter for available resources.<br>
 It's being used when. ultiple resources are available.
 
 ### Semaphore Implementation->
+An implementation with no busy waiting requires an integer value (to hold semaphore value) and a pointer to the next process in the waiting list. The list consists of processes that are put to sleep on the wait for operation. The kernel uses two additional operations: block and wakeup, to command the processes. We can think of semaphore implementation as a critical section problem since we don’t want more than one process accessing the semaphore variable concurrently. Several programming languages have support for concurrency and semaphores. For example, Java supports semaphores, and we can use them in our multi-threaded programs.<br>
 1. Semaphore Implemented in the OS Kernel.<br>
-When we say semaphore is implemented in the kernel, it means:<br>
-a. The operating system manages the semaphore, not the user program.<br>
-b. The OS ensures that multiple processes/threads access it safely.<br>
+    When we say semaphore is implemented in the kernel, it means:<br>
+    a. The operating system manages the semaphore, not the user program.<br>
+    b. The OS ensures that multiple processes/threads access it safely.<br>
 
-So whenever a program calls: wait(), signal()<br>
-the kernel handles what should happen internally.
+    So whenever a program calls: wait(), signal()<br>
+    the kernel handles what should happen internally.
 
 2. Avoiding Busy Waiting<br>
     In a naive implementation, a process keeps checking repeatedly: while(S <= 0). This wastes CPU time because the process keeps running even though it cannot proceed.<br>
@@ -413,7 +414,30 @@ the kernel handles what should happen internally.
 
 3. Data Structure of a Semaphore<br>
    To implement this, the OS stores two things:
+   a. Integer value<br>
+   Stores the current count of available resources
+   b. Waiting List (Queue of processes)<br>
+   If a process cannot continue, it is placed in a waiting list.<br>
+
+   Example Structure::
+   ```
+   Semaphore
+   value = 0
+   waiting_list → P2 → P3 → P4
+   ```
    
 4. Two Important Kernel Operations<br>
-
-
+    The OS uses two internal commands:<br>
+    a. block<br>
+        i. Stops the process<br>
+        ii. Moves it to the waiting queue<br>
+    b. wakeup<br>
+        i. Wakes up a blocked process<br>
+        ii. Moves it back to the ready queue<br>
+    
+5. Why This Becomes a Critical Section Problem<br>
+    The semaphore itself is a shared variable.If both access S at the same time, the value might become incorrect.
+    So the OS must ensure:
+    ➡ Only one process modifies the semaphore variable at a time
+    This is exactly the critical section problem.
+    The kernel protects semaphore operations using atomic instructions or locks.
