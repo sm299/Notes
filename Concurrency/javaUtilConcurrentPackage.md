@@ -372,10 +372,25 @@ A binary semaphore is a semaphore that takes only two values (0 and 1) and is us
 The semaphore acts like a lock or switch.<br>
 
 `````
-Value    Meaning<br>
-    1    Resource is free<br>
-    0    Resource is in use (locked)<br>
+Value    Meaning
+    1    Resource is free
+    0    Resource is in use (locked)
 
-So only one process can enter the critical section at a time.<br>
+So only one process can enter the critical section at a time.
 `````
+
+Here comes the confusion between Binary semaphore and mutex.
+For Binary Semaphore, The Operating System or synchronization library maintains the semaphore value internally.
+For Mutex, it's owned by the thread who used it earlier 
+
+```
+| Feature         | Binary Semaphore                       | Mutex          
+
+| Value           | 0 or 1                                 | Locked / Unlocked  
+| Ownership       | **No ownership**                       | **Has ownership** 
+| Who can release | Any process/thread can call `signal()` | Only the thread that locked it can unlock
+| Main purpose    | Synchronization between processes      | Mutual exclusion(protect critical section)
+| Error safety    | Less safe                              | Safer because of ownership
+```
 *Mutex->*
+
