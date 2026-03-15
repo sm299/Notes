@@ -379,9 +379,9 @@ Value    Meaning
 So only one process can enter the critical section at a time.
 `````
 
-Here comes the confusion between Binary semaphore and mutex.
+*Here comes the confusion between Binary semaphore and mutex.* <br>
 For Binary Semaphore, The Operating System or synchronization library maintains the semaphore value internally.
-For Mutex, it's owned by the thread who used it earlier 
+For Mutex, it's owned by the thread who used it earlier.<br>
 
 ```
 | Feature         | Binary Semaphore                       | Mutex          
@@ -392,5 +392,28 @@ For Mutex, it's owned by the thread who used it earlier
 | Main purpose    | Synchronization between processes      | Mutual exclusion(protect critical section)
 | Error safety    | Less safe                              | Safer because of ownership
 ```
-*Mutex->*
+### Counting Semaphore->
+A counting semaphore is just an integer variable that keeps track of how many resources are available.
+Think of it as a counter for available resources.<br>
+It's being used when. ultiple resources are available.
+
+### Semaphore Implementation->
+1. Semaphore Implemented in the OS Kernel.<br>
+When we say semaphore is implemented in the kernel, it means:<br>
+a. The operating system manages the semaphore, not the user program.<br>
+b. The OS ensures that multiple processes/threads access it safely.<br>
+
+So whenever a program calls: wait(), signal()<br>
+the kernel handles what should happen internally.
+
+2. Avoiding Busy Waiting<br>
+    In a naive implementation, a process keeps checking repeatedly: while(S <= 0). This wastes CPU time because the process keeps running even though it cannot proceed.<br>
+    Instead of looping, the OS puts the process to sleep.
+    So the process does not consume CPU until the resource becomes available.
+
+3. Data Structure of a Semaphore<br>
+   To implement this, the OS stores two things:
+   
+4. Two Important Kernel Operations<br>
+
 
