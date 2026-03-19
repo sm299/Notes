@@ -441,3 +441,37 @@ An implementation with no busy waiting requires an integer value (to hold semaph
     ➡ Only one process modifies the semaphore variable at a time
     This is exactly the critical section problem.
     The kernel protects semaphore operations using atomic instructions or locks.
+
+### Process Synchronization->
+If you use a semaphore to send signals between threads, then you would typically have one thread call the acquire() method, and the other thread to call the release() method.<br>
+
+If no permits are available, the acquire() call will block until a permit is released by another thread. Similarly, a release() calls is blocked if no more permits can be released into this semaphore.<br>
+
+Thus it is possible to coordinate threads. For instance, if acquire was called after Thread 1 had inserted an object in a shared list, and Thread 2 had called release() just before taking an object from that list, you had essentially created a blocking queue. The number of permits available in the semaphore would correspond to the maximum number of elements the blocking queue could hold.<br>
+
+```
+Thread 2 (Consumer)
+   acquire()
+      ↓
+   [ WAITING ]  ←───┐
+                    │
+Thread 1 (Producer) │
+   add item         │
+   release() ───────┘  (SIGNAL)
+
+Thread 2 wakes up → continues
+```
+
+Key Points-><br>
+acquire() → wait if nothing available<br>
+release() → signal that something is available<br>
+Only acquire() blocks, not release()<br>
+
+### Fairness->
+No guarantees are made about fairness of the threads acquiring permits from the Semaphore. That is, there is no guarantee that the first thread to call acquire() is also the first thread to obtain a permit. If the first thread is blocked waiting for a permit, then a second thread checking for a permit just as a permit is released, may actually obtain the permit ahead of thread 1.<br>
+
+If you want to enforce fairness, the Semaphore class has a constructor that takes a boolean telling if the semaphore should enforce fairness. Enforcing fairness comes at a performance / concurrency penalty, so don't enable it unless you need it.<br>
+
+Here is how to create a Semaphore in fair mode:<br>
+
+Semaphore semaphore = new Semaphore(1, true);<br>
