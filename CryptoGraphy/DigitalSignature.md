@@ -13,9 +13,12 @@ For Symmetric Key we have RSA(Rivest, Shamir, Adlemen), ECC(Eliptic Curve Crypto
 
 
 Now, here comes another issue, that is , Suppose A is sending an encrypted data encrypted with a public key , which is available to everyone. If hacker H comes in between and he replaced the original data encrypted with the same public key as it's available to everyone and sends to B, then B won't be able to understand that the data got replaced. So, even if what A sent, that can't be consumed by H, but he still can change the actual information.<br>
-Now if we thing the opposite, like suppose A is sending data to B and A encrypted it with the private key of A, then that can be opened bu A's public key only. in that case, even if H replaces the whole thing and encrypt with his private key, when B won't be able to decrypt it with A's public key, it will be able to understand that something is not right. but again it's not full proof as H still can decrypt and see the data.
+Now if we thing the opposite, like suppose A is sending data to B and A encrypted it with the private key of A, then that can be opened by A's public key only. in that case, even if H replaces the whole thing and encrypt with his private key, when B won't be able to decrypt it with A's public key, it will be able to understand that something is not right. but again it's not full proof as H still can decrypt and see the data.
 
 For this, we can think of double encryption, suppose, A is sending the data, first encrypted by B's public key, then encrypted by A'a private key, So when B will decrypt, first it will use A'a public key, which will ensure that it has come from A and then decrypt using B's own private key. 
-To solve this Digital Signature came into the picture.<br>
 
+We normally use double encryption at first to send symmetric key.
+Our local machine os is having a certificate.
+To solve this Digital Signature came into the picture.<br>
+Digital Signature is basically certificate. 
 
