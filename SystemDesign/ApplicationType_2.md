@@ -60,4 +60,25 @@ Those who store less data but compute more.<br>
 3. Cost of Computation<br>
 4. Good algorithms
 
-#### Now To Handle an Application Effectively, We Have To Segregate Requirements->
+#### Now To Handle an Application Effectively, We Have To Segregate Requirements-> <br>
+1. Functional Requiremnet -><br>
+        a. What System Should Do<br>
+        b. Product Features<br>
+        c. Requirement List<br>
+2. Non-Functional Requirement -><br>
+        a. How System Should Do It<br>
+        b. Product Properties<br>
+        c. User Expectations<br>
+
+
+*SLA(Service Level Agreement) -> The commitment to the customer.* <br>
+*SLO(Service Level Objective) -> The target for the desired performance.*  <br>
+
+#### Terms To Consider-><br>
+1. Scalability -> Horizontal/ Vertical Scaling (Non-Func Req)<br>
+2. Availability ->System Uptime calculated(SLA/SLO) <br>
+3. Reliability -> No data loss should be there<br>
+4. Performance-> Latency (P95,P90,P99)<br>
+5. Security -> Authentication, Authorozation, Encryption<br>
+6. Maintainability -> Code Modularity<br>
+7. Observability -> Monitoring, Logging<br>
