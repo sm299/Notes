@@ -28,8 +28,9 @@ But if something like below is in the code then it will fetch both the IPs<br>
 ```
 <script src="https://docs.abc.com/app.js"></script>
 <img src="https://store.abc.com/logo.png">
+```
 
-
+```
 User
   ↓
 Web Browser
