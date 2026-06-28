@@ -1,7 +1,18 @@
 # Domain Name System
 
-User -> Internet Service Provider -> Domain Name Service Resolver ->Root server<br>
+docs.telusko.com -> here telusko.com is the domain and docs is teh sub domain. <br>
+
+## Why All The Domains Can't Be Stored In The Browser?
+1. Currently we have around 350m Domains in the whole world, if everything needs to be stored in browser, that will make it heavy.<br>
+2. If one website wants to move from one domain to another domain, as example GoDaddy to Google Doamins, then the ip can be changed. In thta case, we need to ensure all the browser where telusko.com is running got updated with new IP.<br>
+
+This is why DNS came into the picture.
+
+Suppose there is one machine, which is using Internet Service Provider and that Service Provider has DNS Resolver. DNS resolver is responsible to provide the correct IP for any website or domain which we are trying to process.<br>
+
 ## Root Servers
+First call DNS going to make is to the **Root Server**. There are 13 root servers, which means there are 13 companies who are maintaining 13 web servers. They are not physically 13 but got categorized to 13. They are named from A to M and owned by different companies as below :
+
 ![alt text](image.png)
 
 ## Flow
