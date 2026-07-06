@@ -31,7 +31,9 @@ Microsoft SQL Server<br>
 ![alt text](image-2.png) <br>
 2. Many to One -> Mapping between Blogs to User. <br>
 3. Many to Many -> Mapping between Courses and Students. <br>
-   ![alt text](image-3.png) <br>
+   ![alt text](image-4.png) <br>
+
+
 
 ## NoSQL (Not Only SQL)
 
